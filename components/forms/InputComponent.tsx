@@ -24,3 +24,5 @@ export const InputComponent = forwardRef<HTMLInputElement, IInputProps>(({ label
     </FormControl>
   );
 });
+
+InputComponent.displayName = 'InputComponent';
