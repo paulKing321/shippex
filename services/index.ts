@@ -10,11 +10,9 @@ export function signIn(data: ISignInPayload) {
   return instance.post(`${baseUrl}login`, data);
 }
 
-export async function trackAWB() {
+export async function trackAWB(param: number) {
   const token = sessionStorage.getItem('user_token')
   return instance
-    .get(`${baseUrl}frappe.client.get`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    .get(`${baseUrl}frappe.client.get?${param}`)
     .then((res) => res.data as ITrackDetails);
 }

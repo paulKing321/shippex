@@ -56,8 +56,8 @@ const SignInPage: NextPage = () => {
         </Heading>
         <Flex columnGap="2px">
             <Text color="#4B5563">Don’t have an account yet?</Text>
-            <NextLink passHref href="/hhhhhhhhh">
-            <chakra.a fontWeight="semibold" color="#1363DF">
+            <NextLink passHref href="/">
+            <chakra.a fontWeight="semibold" color="#2563EB">
               Sign up here
             </chakra.a>
           </NextLink>
@@ -71,7 +71,7 @@ const SignInPage: NextPage = () => {
                 <Flex justifyContent="space-between" width="full">
                     <Text>Password</Text>
                     <NextLink passHref href="">
-                        <chakra.a fontWeight="semibold" color="#1363DF">
+                        <chakra.a fontWeight="semibold" color="#2563EB">
                         Forgot Password
                         </chakra.a>
                     </NextLink>
@@ -99,7 +99,7 @@ const SignInPage: NextPage = () => {
             isLoading={isSubmitting}
             type="submit"
             onClick={handleSubmit(handleSignIn)}
-            bgColor="#1363DF" color="white"
+            bgColor="#2563EB" color="white"
             w="full"
             >
             Sign in
