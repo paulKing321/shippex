@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Shippex Assignment Source code
 
-## Getting Started
+Table of Contents
+- Installation
+- Usage
+- Features
 
-First, run the development server:
 
-```bash
+INSTALLATION
+To install and run this app locally, follow these steps:
+
+1. Clone the repository:
+git clone https://github.com/paulKing321/shippex.git
+
+2. Navigate to the project directory:
+cd shippex
+
+3. Install dependencies (using npm):
+npm install
+
+4. Start the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then, Open your browser and go to http://localhost:3000 to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+FEATURES
+- Sign in page
+- A dashboard to view shippment details
+    . An empty state page
+    . A no result found page
+    . A full details page
+- Pull to refresh functionality across application
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+USAGE
+- When the app is launched, it takes the user to the sign in page.
+- The user fills the form and submits.
+- The form is validated which means the user wouldn't be able to submit if there are errors or if the user inputs the wrong details. 
+- Upon successfully submission, a toast appears with the text "Welcome" and takes the user to the dashboard page.
+- On the dashboard page, the empty state appears first.
+- The user enters an AWB ID for tracking and clicks on the track button.
+- The input is validated which means if the input is empty, less than 10 characters or more than 13 charcters, the user will not be able to submit. it show an error text instead.
+- Upon succeessful submission, the full details is shown. a static data is used to populate the page sice there is no API for that. The logic to fetch the API has been removed(the same applies to the sign in, the logic to post signin details has been removed).
+- There is also a no result found component that will only be displayed if the steps array for the stepper is empty. (This can be manually done to view.) 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
