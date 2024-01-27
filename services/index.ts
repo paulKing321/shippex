@@ -11,8 +11,13 @@ export function signIn(data: ISignInPayload) {
 }
 
 export async function trackAWB(param: number) {
-  const token = sessionStorage.getItem('user_token')
-  return instance
-    .get(`${baseUrl}frappe.client.get?${param}`)
+  return axios.get('https://shippex-demo.bc.brandimic.com/api/method/frappe.client.get', {
+    params: {
+      doctype: 'AWB',
+      filters: JSON.stringify({
+        name: ['like', param]
+      })
+    },
+  })
     .then((res) => res.data as ITrackDetails);
 }

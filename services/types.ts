@@ -1,11 +1,13 @@
 export interface ITrackDetails {
-  fullname: string;
-  phone_number: string;
-  email: string;
-  delivery_address: string;
-  delivery_type: string;
   id: string;
-  default: boolean;
+  date: string;
+  time: string;
+  sender: string;
+  consignee: string;
+  origin_address: string;
+  destination_address: string;
+  shipping_service: string;
+  total_cod_amount: string;
 }
 export interface ISignInPayload {
   usr: string;
