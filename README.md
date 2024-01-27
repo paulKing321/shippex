@@ -16,7 +16,7 @@ git clone https://github.com/paulKing321/shippex.git
 cd shippex
 
 3. Install dependencies (using npm):
-npm install
+npm install or npm i --legacy-peer-deps(incase of dependency conflict)
 
 4. Start the development server:
 npm run dev
