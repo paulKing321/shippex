@@ -6,7 +6,7 @@ export const InputComponent = forwardRef<HTMLInputElement, IInputProps>(({ label
   const { id, variant = 'outline' } = rest;
 
   return (
-    <FormControl isInvalid={!!errorMessage}>
+    <FormControl isInvalid={!!errorMessage} w="100%">
       {label && (
         <FormLabel fontWeight="600" fontSize="12px" lineHeight="20px" color="secondary.900" htmlFor={id} {...labelStyles}>
           {label}
