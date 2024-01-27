@@ -1,24 +1,21 @@
-// 'use client'
-
 import { Button, Flex, Heading, chakra, Text, Box, Checkbox } from '@chakra-ui/react';
 import { InputComponent, ToastMessage } from '../../components';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
 import { PiLockSimpleThin, PiUsersThin } from "react-icons/pi";
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import NextLink from 'next/link';
-import { ISignIn, ISignInResponse, SignInSchema } from './utils';
+import { ISignIn, SignInSchema } from './utils';
 import { NextPage } from 'next';
-import { signIn } from '../../services';
+// import { signIn } from '../../services';
 
 const SignInPage: NextPage = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
   const handleClick = () => {
     setShow(!show)
-    console.log(show)
   };
   const [rememberMe, setRememberMe] = useState(false);
 
@@ -32,25 +29,27 @@ const SignInPage: NextPage = () => {
   });
 
   const handleSignIn: SubmitHandler<ISignIn> = async (values) => {
-    try {
-      const data: any = await signIn({
-      usr: values.username,
-      pwd: values.password
-    });
-    console.log({data});
-    if (data && data.message == "Logged In" && data.full_name) {
-      sessionStorage.setItem("user", 'logged_in');
+  //   try {
+  //     const data: any = await signIn({
+  //     usr: values.username,
+  //     pwd: values.password
+  //   });
+  //   console.log({data});
+  //   if (data && data.message == "Logged In") {
+  //     sessionStorage.setItem("user", 'logged_in');
+  //     ToastMessage('Welcome', 'success', 1000)
+  //     router.push('/dashboard');
+  //   }
+  // } catch (error) {
+    //   console.log({error})
+    // }
       ToastMessage('Welcome', 'success', 1000)
       router.push('/dashboard');
-    }
-  } catch (error) {
-    console.log({error})
-  }
   };
 
   return (
     <>
-      <Flex fontFamily='Inter'  w="full" mx="auto" as="section" alignItems="center" justifyContent="center" direction="column" py="50px" color="black" fontSize="14px">
+      <Flex fontFamily='Inter'  w="full" maxW="1440px" mx="auto" as="section" alignItems="center" justifyContent="center" direction="column" py="50px" color="black" fontSize="14px">
         <Heading fontWeight="bold" fontSize={{ base: '22px', sm: '24px' }}>
           Sign in
         </Heading>
