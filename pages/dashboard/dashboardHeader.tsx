@@ -3,7 +3,6 @@ import { Button, Flex } from "@chakra-ui/react"
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ITrack, TrackSchema } from "./utils";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { register } from "module";
 import { Dispatch, SetStateAction } from "react";
 // import { trackAWB } from "../../services";
 
@@ -30,12 +29,10 @@ export const DashboardHeader = ({setShowDetails}: IProps) => {
   };
 
     return (
-        <Flex bgColor="#F8FAFC" justifyContent="center" alignItems="center" w="90%" p={{ base: 8, md: 12 }} height="18vh" mx="auto">
+      <Flex bgColor="#F8FAFC" justifyContent="center" alignItems="center" w="90%" p={{ base: 8, md: 12 }} height="18vh" mx="auto">
           <Flex w={{ base: '90%', sm: '80%', md: '70%' }}>
             <Flex columnGap="20px" w="100%">
-              {/* <Flex w="100%"> */}
                 <InputComponent bg="white" {...register('trackID')} errorMessage={errors.trackID && errors.trackID.message} placeholder="Enter AWB ID" w="100%" />
-              {/* </Flex> */}
               <Button
               isLoading={isSubmitting}
               type="submit"

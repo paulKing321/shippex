@@ -3,6 +3,7 @@ import { InputComponent, ToastMessage } from '../../components';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
+import PullToRefresh from 'react-simple-pull-to-refresh';
 import { PiLockSimpleThin, PiUsersThin } from "react-icons/pi";
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -22,6 +23,7 @@ const SignInPage: NextPage = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<ISignIn>({
     mode: 'onBlur',
@@ -46,9 +48,13 @@ const SignInPage: NextPage = () => {
       ToastMessage('Welcome', 'success', 1000)
       router.push('/dashboard');
   };
+  const handleRefresh = async () => {
+    reset();
+    ToastMessage('Please enter your details to sign in', 'info', 1000)
+  };
 
   return (
-    <>
+    <PullToRefresh onRefresh={handleRefresh}>
       <Flex fontFamily='Inter'  w="full" maxW="1440px" mx="auto" as="section" alignItems="center" justifyContent="center" direction="column" py="50px" color="black" fontSize="14px">
         <Heading fontWeight="bold" fontSize={{ base: '22px', sm: '24px' }}>
           Sign in
@@ -105,7 +111,7 @@ const SignInPage: NextPage = () => {
             </Button>
         </Flex>
       </Flex>
-    </>
+    </PullToRefresh>
   );
 };
 
